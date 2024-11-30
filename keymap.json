@@ -78,6 +78,7 @@
     "context": "Editor && (vim_mode == normal)",
     "bindings": {
       // f keybindings
+      "space f": null,
       "space f f": "file_finder::Toggle",
       "space f t": "workspace::NewSearch",
       "space f s": "workspace::Save",
@@ -85,6 +86,7 @@
       "space f =": "editor::Format",
 
       // ; keybindings
+      "; ;": ["workspace::SendKeystrokes", ";"],
       "; e": ["workspace::SendKeystrokes", ": E enter"],
       "; E": "workspace::ToggleLeftDock",
       "; R": "workspace::ToggleRightDock",
@@ -96,6 +98,26 @@
       "space w w": "tab_switcher::Toggle",
       "space w p": ["workspace::SendKeystrokes", "ctrl-tab enter"],
       "space w n": ["workspace::SendKeystrokes", "ctrl-shift-tab enter"],
+      "space w c": ["workspace::SendKeystrokes", ": q enter"],
+      // Window
+      "space w v": ["workspace::SendKeystrokes", "ctrl-w v"],
+      "space w s": ["workspace::SendKeystrokes", "ctrl-w s"],
+      // Movement
+      "space w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "space w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "space w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "space w j": ["workspace::ActivatePaneInDirection", "Down"],
+      // Change windows
+      "space w H": ["workspace::SwapPaneInDirection", "Left"],
+      "space w L": ["workspace::SwapPaneInDirection", "Right"],
+      "space w K": ["workspace::SwapPaneInDirection", "Up"],
+      "space w J": ["workspace::SwapPaneInDirection", "Down"],
+      // Resizing
+      "space w >": ["vim::ResizePane", "Widen"],
+      "space w <": ["vim::ResizePane", "Narrow"],
+      "space w -": ["vim::ResizePane", "Shorten"],
+      "space w +": ["vim::ResizePane", "Lengthen"],
+      "space w =": "vim::ResetPaneSizes",
 
       // Rename
       "space r r": "editor::Rename"

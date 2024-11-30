@@ -1,0 +1,138 @@
+// Zed keymap
+
+//
+
+// For information on binding keys, see the Zed
+
+// documentation: https://zed.dev/docs/key-bindings
+
+//
+
+// To see the default key bindings run `zed: open default keymap`
+
+// from the command palette.
+
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+
+  // Marks
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space m w": ["workspace::SendKeystrokes", "m W"],
+      "space m e": ["workspace::SendKeystrokes", "m E"],
+      "space m r": ["workspace::SendKeystrokes", "m R"],
+      "space m s": ["workspace::SendKeystrokes", "m S"],
+      "space m d": ["workspace::SendKeystrokes", "m D"],
+      "space m f": ["workspace::SendKeystrokes", "m F"],
+      "m w": ["workspace::SendKeystrokes", "' W"],
+      "m e": ["workspace::SendKeystrokes", "' E"],
+      "m r": ["workspace::SendKeystrokes", "' R"],
+      "m s": ["workspace::SendKeystrokes", "' S"],
+      "m d": ["workspace::SendKeystrokes", "' D"],
+      "m f": ["workspace::SendKeystrokes", "' F"]
+    }
+  },
+
+  // Basic motions
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "ctrl-u": ["workspace::SendKeystrokes", "1 8 k"],
+      "ctrl-d": ["workspace::SendKeystrokes", "1 8 j"],
+      "H": ["workspace::SendKeystrokes", "^"],
+      "J": ["workspace::SendKeystrokes", "}"],
+      "K": ["workspace::SendKeystrokes", "{"],
+      "L": ["workspace::SendKeystrokes", "$"]
+    }
+  },
+
+  // Dock basic motions
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-u": [
+        "workspace::SendKeystrokes",
+        "k k k k k k k k k k k k k k k k k k"
+      ],
+      "ctrl-d": [
+        "workspace::SendKeystrokes",
+        "j j j j j j j j j j j j j j j j j j"
+      ]
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == normal)",
+    "bindings": {
+      // f keybindings
+      "space f f": "file_finder::Toggle",
+      "space f t": "workspace::NewSearch",
+      "space f s": "workspace::Save",
+      "space f S": "workspace::SaveAll",
+      "space f =": "editor::Format",
+
+      // ; keybindings
+      "; e": ["workspace::SendKeystrokes", ": E enter"],
+      "; E": "workspace::ToggleLeftDock",
+      "; R": "workspace::ToggleRightDock",
+
+      // g keybindings
+      "g q": "editor::ToggleCodeActions",
+
+      // w keybindings
+      "space w w": "tab_switcher::Toggle",
+      "space w p": ["workspace::SendKeystrokes", "ctrl-tab enter"],
+      "space w n": ["workspace::SendKeystrokes", "ctrl-shift-tab enter"],
+
+      // Rename
+      "space r r": "editor::Rename"
+    }
+  },
+
+  {
+    "context": "Editor && (vim_mode == visual)",
+    "bindings": {
+      "space f t": "workspace::NewSearch",
+      "space f =": "editor::FormatSelections",
+
+      // g keybindings
+      "g q": "editor::ToggleCodeActions"
+    }
+  },
+
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev"
+    }
+  },
+
+  {
+    "context": "Dock",
+    "bindings": {
+      "; E": "workspace::ToggleLeftDock",
+      "; R": "workspace::ToggleRightDock"
+    }
+  },
+
+  {
+    "context": "Dock || Editor",
+    "bindings": {
+      "ctrl-t": "workspace::ToggleBottomDock"
+    }
+  }
+]

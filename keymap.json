@@ -93,6 +93,7 @@
 
       // g keybindings
       "g q": "editor::ToggleCodeActions",
+      "g r": "editor::FindAllReferences",
 
       // w keybindings
       "space w w": "tab_switcher::Toggle",
@@ -120,7 +121,10 @@
       "space w =": "vim::ResetPaneSizes",
 
       // Rename
-      "space r r": "editor::Rename"
+      "space r r": "editor::Rename",
+
+      // . keybindings
+      "space . y": "editor::CopyPath"
     }
   },
 
@@ -131,7 +135,8 @@
       "space f =": "editor::FormatSelections",
 
       // g keybindings
-      "g q": "editor::ToggleCodeActions"
+      "g q": "editor::ToggleCodeActions",
+      "g r": "editor::FindAllReferences"
     }
   },
 
@@ -139,7 +144,11 @@
     "context": "TabSwitcher",
     "bindings": {
       "j": "menu::SelectNext",
-      "k": "menu::SelectPrev"
+      "k": "menu::SelectPrev",
+      // Repeats the 'menu::SelectPrev'
+      "ctrl-u": ["workspace::SendKeystrokes", "k k k k k"],
+      // Repeats the 'menu::SelectNext'
+      "ctrl-d": ["workspace::SendKeystrokes", "j j j j j"]
     }
   },
 
@@ -155,6 +164,50 @@
     "context": "Dock || Editor",
     "bindings": {
       "ctrl-t": "workspace::ToggleBottomDock"
+    }
+  },
+
+  {
+    // Copied frpm the default and edited
+    "context": "ProjectPanel && not_editing",
+    "use_layout_keys": true,
+    "bindings": {
+      ":": "command_palette::Toggle",
+
+      // Movement
+      // "h": "project_panel::CollapseSelectedEntry",
+      "H": "project_panel::CollapseSelectedEntry",
+      "h": "project_panel::SelectParent",
+      "J": "menu::SelectLast",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev",
+      // "l": "project_panel::ExpandSelectedEntry",
+      "l": "project_panel::OpenPermanent",
+      "L": "project_panel::ExpandSelectedEntry",
+      "shift-g": "menu::SelectLast",
+      "g g": "menu::SelectFirst",
+      "escape": "project_panel::ToggleFocus",
+      "ctrl-o": "project_panel::ToggleFocus",
+
+      // Search
+      "f": "project_panel::NewSearchInDirectory",
+
+      // Actions
+      "ctrl-alt-c": "project_panel::NewFile",
+      "ctrl-shift-n": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "Y": "project_panel::CopyRelativePath",
+      "y": "project_panel::Copy",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste",
+      "d": "project_panel::Delete",
+
+      // Open
+      "o": "project_panel::OpenPermanent",
+      "enter": "project_panel::OpenPermanent",
+      ".": "project_panel::RevealInFileManager",
+      "s": "project_panel::OpenWithSystem",
+      "-": "project_panel::SelectParent"
     }
   }
 ]

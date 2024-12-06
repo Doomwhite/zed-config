@@ -13,6 +13,9 @@
 // from the command palette.
 
 [
+  // =============================================
+  // Global Workspace Bindings
+  // =============================================
   {
     "context": "Workspace",
     "bindings": {
@@ -20,6 +23,9 @@
     }
   },
 
+  // =============================================
+  // Editor Basic Settings
+  // =============================================
   {
     "context": "Editor",
     "bindings": {
@@ -27,16 +33,93 @@
     }
   },
 
-  // Marks
+  // =============================================
+  // Vim Normal Mode Bindings
+  // =============================================
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
+      // File Operations
+      "space f": null,
+      "space f f": "file_finder::Toggle",
+      "space f t": "workspace::NewSearch",
+      "space f s": "workspace::Save",
+      "space f S": "workspace::SaveAll",
+      "space f =": "editor::Format",
+
+      // Window Management
+      "space w w": "tab_switcher::Toggle",
+      "space w p": ["workspace::SendKeystrokes", "ctrl-tab enter"],
+      "space w n": ["workspace::SendKeystrokes", "ctrl-shift-tab enter"],
+      "space w c": ["workspace::SendKeystrokes", ": q enter"],
+
+      // Window Splits
+      "space w v": ["workspace::SendKeystrokes", "ctrl-w v"],
+      "space w s": ["workspace::SendKeystrokes", "ctrl-w s"],
+
+      // Window Navigation
+      "space w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "space w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "space w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "space w j": ["workspace::ActivatePaneInDirection", "Down"],
+
+      // Window Arrangement
+      "space w H": ["workspace::SwapPaneInDirection", "Left"],
+      "space w L": ["workspace::SwapPaneInDirection", "Right"],
+      "space w K": ["workspace::SwapPaneInDirection", "Up"],
+      "space w J": ["workspace::SwapPaneInDirection", "Down"],
+
+      // Window Resizing
+      "space w >": ["vim::ResizePane", "Widen"],
+      "space w <": ["vim::ResizePane", "Narrow"],
+      "space w -": ["vim::ResizePane", "Shorten"],
+      "space w +": ["vim::ResizePane", "Lengthen"],
+      "space w =": "vim::ResetPaneSizes",
+
+      // Code Navigation and Actions
+      "g q": "editor::ToggleCodeActions",
+      "g r": "editor::FindAllReferences",
+      "g f": "editor::OpenExcerpts",
+      "space r r": "editor::Rename",
+
+      // Semicolon Commands
+      "; ;": ["workspace::SendKeystrokes", ";"],
+      "; e": ["workspace::SendKeystrokes", ": E enter"],
+      "; E": "workspace::ToggleLeftDock",
+      "; R": "workspace::ToggleRightDock",
+
+      // Utility Commands
+      "space . y": "editor::CopyPath"
+    }
+  },
+
+  // =============================================
+  // Vim Visual Mode Bindings
+  // =============================================
+  {
+    "context": "Editor && (vim_mode == visual)",
+    "bindings": {
+      "space f t": "workspace::NewSearch",
+      "space f =": "editor::FormatSelections",
+      "g q": "editor::ToggleCodeActions"
+    }
+  },
+
+  // =============================================
+  // Marks Configuration
+  // =============================================
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // Set Marks
       "space m w": ["workspace::SendKeystrokes", "m W"],
       "space m e": ["workspace::SendKeystrokes", "m E"],
       "space m r": ["workspace::SendKeystrokes", "m R"],
       "space m s": ["workspace::SendKeystrokes", "m S"],
       "space m d": ["workspace::SendKeystrokes", "m D"],
       "space m f": ["workspace::SendKeystrokes", "m F"],
+
+      // Jump to Marks
       "m w": ["workspace::SendKeystrokes", "' W"],
       "m e": ["workspace::SendKeystrokes", "' E"],
       "m r": ["workspace::SendKeystrokes", "' R"],
@@ -46,7 +129,9 @@
     }
   },
 
-  // Basic motions
+  // =============================================
+  // Motion Bindings
+  // =============================================
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual)",
     "bindings": {
@@ -59,140 +144,57 @@
     }
   },
 
-  // Dock basic motions
+  // =============================================
+  // Dock Navigation
+  // =============================================
   {
     "context": "Dock",
     "bindings": {
-      "ctrl-u": [
-        "workspace::SendKeystrokes",
-        "k k k k k k k k k k k k k k k k k k"
-      ],
-      "ctrl-d": [
-        "workspace::SendKeystrokes",
-        "j j j j j j j j j j j j j j j j j j"
-      ]
-    }
-  },
-
-  {
-    "context": "Editor && (vim_mode == normal)",
-    "bindings": {
-      // f keybindings
-      "space f": null,
-      "space f f": "file_finder::Toggle",
-      "space f t": "workspace::NewSearch",
-      "space f s": "workspace::Save",
-      "space f S": "workspace::SaveAll",
-      "space f =": "editor::Format",
-
-      // ; keybindings
-      "; ;": ["workspace::SendKeystrokes", ";"],
-      "; e": ["workspace::SendKeystrokes", ": E enter"],
-      "; E": "workspace::ToggleLeftDock",
-      "; R": "workspace::ToggleRightDock",
-
-      // g keybindings
-      "g q": "editor::ToggleCodeActions",
-      "g r": "editor::FindAllReferences",
-      "g f": "editor::OpenExcerpts",
-
-      // w keybindings
-      "space w w": "tab_switcher::Toggle",
-      "space w p": ["workspace::SendKeystrokes", "ctrl-tab enter"],
-      "space w n": ["workspace::SendKeystrokes", "ctrl-shift-tab enter"],
-      "space w c": ["workspace::SendKeystrokes", ": q enter"],
-      // Window
-      "space w v": ["workspace::SendKeystrokes", "ctrl-w v"],
-      "space w s": ["workspace::SendKeystrokes", "ctrl-w s"],
-      // Movement
-      "space w h": ["workspace::ActivatePaneInDirection", "Left"],
-      "space w l": ["workspace::ActivatePaneInDirection", "Right"],
-      "space w k": ["workspace::ActivatePaneInDirection", "Up"],
-      "space w j": ["workspace::ActivatePaneInDirection", "Down"],
-      // Change windows
-      "space w H": ["workspace::SwapPaneInDirection", "Left"],
-      "space w L": ["workspace::SwapPaneInDirection", "Right"],
-      "space w K": ["workspace::SwapPaneInDirection", "Up"],
-      "space w J": ["workspace::SwapPaneInDirection", "Down"],
-      // Resizing
-      "space w >": ["vim::ResizePane", "Widen"],
-      "space w <": ["vim::ResizePane", "Narrow"],
-      "space w -": ["vim::ResizePane", "Shorten"],
-      "space w +": ["vim::ResizePane", "Lengthen"],
-      "space w =": "vim::ResetPaneSizes",
-
-      // Rename
-      "space r r": "editor::Rename",
-
-      // . keybindings
-      "space . y": "editor::CopyPath"
-    }
-  },
-
-  {
-    "context": "Editor && (vim_mode == visual)",
-    "bindings": {
-      "space f t": "workspace::NewSearch",
-      "space f =": "editor::FormatSelections",
-
-      // g keybindings
-      "g q": "editor::ToggleCodeActions"
-    }
-  },
-
-  {
-    "context": "TabSwitcher",
-    "bindings": {
-      "j": "menu::SelectNext",
-      "k": "menu::SelectPrev",
-      // Repeats the 'menu::SelectPrev'
-      "ctrl-u": ["workspace::SendKeystrokes", "k k k k k"],
-      // Repeats the 'menu::SelectNext'
-      "ctrl-d": ["workspace::SendKeystrokes", "j j j j j"]
-    }
-  },
-
-  {
-    "context": "Dock",
-    "bindings": {
+      "ctrl-u": ["workspace::SendKeystrokes", "k k k k k k k k k k k k k k k k k k"],
+      "ctrl-d": ["workspace::SendKeystrokes", "j j j j j j j j j j j j j j j j j j"],
       "; E": "workspace::ToggleLeftDock",
       "; R": "workspace::ToggleRightDock"
     }
   },
 
+  // =============================================
+  // Tab Switcher Configuration
+  // =============================================
   {
-    "context": "Dock || Editor",
+    "context": "TabSwitcher",
     "bindings": {
-      "ctrl-t": "workspace::ToggleBottomDock"
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev",
+      "ctrl-u": ["workspace::SendKeystrokes", "k k k k k"],
+      "ctrl-d": ["workspace::SendKeystrokes", "j j j j j"]
     }
   },
 
+  // =============================================
+  // Project Panel Configuration
+  // =============================================
   {
-    // Copied frpm the default and edited
     "context": "ProjectPanel && not_editing",
     "use_layout_keys": true,
     "bindings": {
+      // Basic Commands
       ":": "command_palette::Toggle",
-
-      // Movement
-      // "h": "project_panel::CollapseSelectedEntry",
-      "H": "project_panel::CollapseSelectedEntry",
-      "h": "project_panel::SelectParent",
-      "J": "menu::SelectLast",
-      "j": "menu::SelectNext",
-      "k": "menu::SelectPrev",
-      // "l": "project_panel::ExpandSelectedEntry",
-      "l": "project_panel::OpenPermanent",
-      "L": "project_panel::ExpandSelectedEntry",
-      "shift-g": "menu::SelectLast",
-      "g g": "menu::SelectFirst",
       "escape": "project_panel::ToggleFocus",
       "ctrl-o": "project_panel::ToggleFocus",
 
-      // Search
-      "f": "project_panel::NewSearchInDirectory",
+      // Navigation
+      "h": "project_panel::SelectParent",
+      "H": "project_panel::CollapseSelectedEntry",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev",
+      "l": "project_panel::OpenPermanent",
+      "L": "project_panel::ExpandSelectedEntry",
+      "J": "menu::SelectLast",
+      "shift-g": "menu::SelectLast",
+      "g g": "menu::SelectFirst",
 
-      // Actions
+      // File Operations
+      "f": "project_panel::NewSearchInDirectory",
       "ctrl-alt-c": "project_panel::NewFile",
       "ctrl-shift-n": "project_panel::NewDirectory",
       "r": "project_panel::Rename",
@@ -202,12 +204,22 @@
       "p": "project_panel::Paste",
       "d": "project_panel::Delete",
 
-      // Open
+      // Opening Files
       "o": "project_panel::OpenPermanent",
       "enter": "project_panel::OpenPermanent",
       ".": "project_panel::RevealInFileManager",
       "s": "project_panel::OpenWithSystem",
       "-": "project_panel::SelectParent"
+    }
+  },
+
+  // =============================================
+  // Dock/Editor Shared Bindings
+  // =============================================
+  {
+    "context": "Dock || Editor",
+    "bindings": {
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   }
 ]

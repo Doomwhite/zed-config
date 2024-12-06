@@ -94,6 +94,7 @@
       // g keybindings
       "g q": "editor::ToggleCodeActions",
       "g r": "editor::FindAllReferences",
+      "g f": "editor::OpenExcerpts",
 
       // w keybindings
       "space w w": "tab_switcher::Toggle",
@@ -135,8 +136,7 @@
       "space f =": "editor::FormatSelections",
 
       // g keybindings
-      "g q": "editor::ToggleCodeActions",
-      "g r": "editor::FindAllReferences"
+      "g q": "editor::ToggleCodeActions"
     }
   },
 

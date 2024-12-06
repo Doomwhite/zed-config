@@ -28,5 +28,6 @@
     "mode": "system",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Macchiato"
-  }
+  },
+  "format_on_save": "off"
 }

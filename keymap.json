@@ -88,6 +88,11 @@
       "; E": "workspace::ToggleLeftDock",
       "; R": "workspace::ToggleRightDock",
 
+      // Toggle commands
+      "space t c": "workspace::ToggleCenteredLayout",
+      "space t i": "editor::ToggleInlayHints",
+      "space t w": "editor::ToggleSoftWrap",
+
       // Utility Commands
       "space . y": "editor::CopyPath"
     }

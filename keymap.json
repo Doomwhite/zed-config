@@ -82,10 +82,6 @@
       "g f": "editor::OpenExcerpts",
       "space r r": "editor::Rename",
 
-      // Semicolon Commands
-      "; ;": ["workspace::SendKeystrokes", ";"],
-      "; e": ["workspace::SendKeystrokes", ": E enter"],
-
       // Toggle commands
       "space t c": "workspace::ToggleCenteredLayout",
       "space t i": "editor::ToggleInlayHints",
@@ -93,8 +89,15 @@
       "space t l": "workspace::ToggleRightDock",
       "space t w": "editor::ToggleSoftWrap",
 
-      // Utility Commands
-      "space . y": "editor::CopyPath"
+      // Dot/Local Commands
+      "space . y": "editor::CopyPath",
+
+      // Semicolon Commands
+      "; ;": "vim::RepeatFind",
+      "; e": ["workspace::SendKeystrokes", ": E enter"],
+
+      // Comma Commands
+      ", ,": "vim::RepeatFindReversed"
     }
   },
 
@@ -155,8 +158,14 @@
   {
     "context": "Dock",
     "bindings": {
-      "ctrl-u": ["workspace::SendKeystrokes", "k k k k k k k k k k k k k k k k k k"],
-      "ctrl-d": ["workspace::SendKeystrokes", "j j j j j j j j j j j j j j j j j j"],
+      "ctrl-u": [
+        "workspace::SendKeystrokes",
+        "k k k k k k k k k k k k k k k k k k"
+      ],
+      "ctrl-d": [
+        "workspace::SendKeystrokes",
+        "j j j j j j j j j j j j j j j j j j"
+      ],
       "; E": "workspace::ToggleLeftDock",
       "; R": "workspace::ToggleRightDock"
     }

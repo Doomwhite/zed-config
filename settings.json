@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  // =============================================
+  // AI Assistant Configuration
+  // =============================================
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
@@ -14,27 +17,52 @@
     },
     "version": "2"
   },
+
+  // =============================================
+  // Vim Configuration
+  // =============================================
   "vim_mode": true,
-  "cursor_blink": false,
   "vim": {
     "use_system_clipboard": "always",
     "use_multiline_find": true,
     "toggle_relative_line_numbers": true
   },
-  "vertical_scroll_margin": 5,
+
+  // =============================================
+  // Editor Display Settings
+  // =============================================
+  // Cursor
+  "cursor_blink": false,
+
+  // Line Numbers
   "relative_line_numbers": true,
-  "scrollbar": { "show": "always" },
-  "scroll_beyond_last_line": "one_page",
   "gutter": {
     "line_numbers": true
   },
+
+  // Scroll Behavior
+  "vertical_scroll_margin": 5,
+  "scrollbar": { "show": "always" },
+  "scroll_beyond_last_line": "one_page",
+
+  // =============================================
+  // Font Settings
+  // =============================================
   "ui_font_size": 13.5,
   "buffer_font_size": 12,
   "buffer_font_family": "IBM Plex Mono",
+
+  // =============================================
+  // Theme Settings
+  // =============================================
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Macchiato"
   },
+
+  // =============================================
+  // Code Formatting
+  // =============================================
   "format_on_save": "off"
 }

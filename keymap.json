@@ -85,12 +85,12 @@
       // Semicolon Commands
       "; ;": ["workspace::SendKeystrokes", ";"],
       "; e": ["workspace::SendKeystrokes", ": E enter"],
-      "; E": "workspace::ToggleLeftDock",
-      "; R": "workspace::ToggleRightDock",
 
       // Toggle commands
       "space t c": "workspace::ToggleCenteredLayout",
       "space t i": "editor::ToggleInlayHints",
+      "space t h": "workspace::ToggleLeftDock",
+      "space t l": "workspace::ToggleRightDock",
       "space t w": "editor::ToggleSoftWrap",
 
       // Utility Commands

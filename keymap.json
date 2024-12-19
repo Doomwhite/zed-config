@@ -87,6 +87,7 @@
       "space t i": "editor::ToggleInlayHints",
       "space t h": "workspace::ToggleLeftDock",
       "space t l": "workspace::ToggleRightDock",
+      "space t t": "workspace::ToggleBottomDock",
       "space t w": "editor::ToggleSoftWrap",
 
       // Dot/Local Commands
@@ -197,8 +198,7 @@
       "ctrl-o": "project_panel::ToggleFocus",
 
       // Navigation
-      "h": "project_panel::SelectParent",
-      "H": "project_panel::CollapseSelectedEntry",
+      "h": "project_panel::CollapseSelectedEntry",
       "j": "menu::SelectNext",
       "k": "menu::SelectPrev",
       "l": "project_panel::OpenPermanent",
@@ -233,7 +233,7 @@
   {
     "context": "Dock || Editor",
     "bindings": {
-      "ctrl-t": "workspace::ToggleBottomDock"
+      "ctrl-t": "terminal_panel::ToggleFocus"
     }
   }
 ]
